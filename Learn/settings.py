@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-j9e=3l!@uvc9*36q^@5@b6ktb1nfoahn6#s9w105k)c05(v0sq"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -85,8 +85,12 @@ DATABASES = {
 }
 import dj_database_url
 
-url = os.environ.get("DATABASE_URL")
-DATABASES["default"] = dj_database_url.parse(url=url)
+url = os.environ.get(
+    "DATABASE_URL",
+)
+DATABASES["default"] = dj_database_url.parse(
+    "postgres://asassa_user:sFuRwy2nwieQPHfnXK6ZB7SMQ9YTb97j@dpg-cmp4leqcn0vc73cl62qg-a.oregon-postgres.render.com/asassa"
+)
 
 
 # Password validation
@@ -126,6 +130,11 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "app/static"),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
