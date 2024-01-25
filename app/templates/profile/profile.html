@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ar">
+    <!-- load static dajngo -->
+    {% load static %}
+  <head>
+    <title>Learn To Earn</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    
+  </head>
+<body class="bg-dark">
+    {% include "statics/header.html" %}
+
+    <div class=" bg-dark p-5" >
+                <div class="container">
+            <div class="intro d-flex justify-content-center">
+                <style>
+                    #title::first-letter{
+                        color: #fd3d5c;
+                    }
+                </style>
+                <h2 id="title" class="text-center h1 text-dark" style="border: 2px solid #fd3d5c; background-color: #fcfcfc; width:200px; padding: 10px 5px; border-radius: 10px; ">Profile </h2>
+            </div>
+            <div class="row people d-flex justify-content-center mt-5 bg-light p-5 rounded-4" >
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle w-50" src="{% static '/images/student.png' %}">
+                        
+                        <h3 class="name text-center w-50 mt-3">{{student.name}}</h3>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box text-center">
+                        <p class="title fs-3"> : معلومات  عن </p>
+                         <p class="title fs-3 text-underline-danger link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">{{student.name}}</p>
+                
+
+                        <ul class="list-group text-start">
+                            
+                        <li class="list-group-item">Name : <input disabled name="name" class="bg-transparent border-0 text-dark" value="{{student.name}}" type="text"></li>
+                        <li class="list-group-item">Username :  <input disabled name="username" class="bg-transparent border-0 text-dark" value="{{student.username}}" type="text"></li>
+                        <li class="list-group-item">Age :  <input disabled name="age" class="bg-transparent border-0 text-dark" value=" {{student.age}}" type="text"></li>
+                        <li class="list-group-item">Gread :  <input disabled name="gread" class="bg-transparent border-0 text-dark" value="{{student.gread}}" type="text"></li>
+                        <li class="list-group-item"> <span>Points </span>  :  <span id="points"  class="bg-transparent border-0 text-dark"  type="text">{{student.points}} </span></li>
+                        </ul>
+
+                        <button id="editBtn" type="button" class="btn btn-secondary w-50 fs-5 mt-4">Edit</button>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="height: 70vh;">
+        <div id="alert" class="text-center d-felx justify-content-center"></div>
+        <div class="w-100 text-center">
+            <span class=" text-center text-light" style=" font-size: 30px; text-align: center; font-weight: 600;">Gift Cards</span>
+            <p class="text-center text-light">
+                you can get gift cards by points
+            </p>
+        </div>
+       <ul class="nav nav-tabs " id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button style="color: #fd3d5c;" class=" nav-link active " id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Amazon Gift Card</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button style="color: #fd3d5c;"   class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Google Play Gift Card</button>
+  </li>
+
+
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div></div>
+  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+    <div class="text-light d-flex flex-column justify-content-center align-items-center">
+        <img style="width: 200px; margin: 0 auto;" src="https://www.ezink123.com/cdn/shop/products/2_ba881a96-47e2-472c-b455-205b017ca454.png?v=1630456670" alt="">
+        <h2 class="text-center">
+            250 points
+        </h2>
+        <button onclick="handleClick()" id="liveToastBtn"  name="amazon" class="btn btn-success w-50" >Get</button>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        <div class="text-light d-flex flex-column justify-content-center align-items-center">
+        <img style="width: 200px; margin: 0 auto; padding: 20px; padding-top: 50px;" src="https://www.steamcarddelivery.com/_next/image?url=%2Fstatic%2Fimg%2Fgift-cards%2F10-google-play-digital-gift-card-email-delivery-2x.png&w=750&q=75" alt="">
+        <h2 class="text-center">
+            250 points
+        </h2>
+        
+        <button onclick="handleClick()" name="google" id="liveToastBtn" class="btn btn-success w-50 mt-2" >
+            Get</button>
+    </div>
+  </div>
+  </div>
+</div>
+    </div>
+
+    </div>
+    <script>
+        function handleClick(){
+           let points = parseInt(document.querySelector('#points').textContent);
+              if(points >= 250){
+                document.querySelector('#points').textContent = points - 250;
+                document.querySelector('#alert').innerHTML = `<div class="alert alert-success w-50" role="alert">
+                                                                    we will send you the gift card in 24 hours
+                                                                </div>`;
+                    fetch(`/handelPay/${localStorage.getItem("username")}`, {
+                        method: 'POST',
+                        headers:{
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': '{{ csrf_token }}',
+                        }
+                    })
+                setTimeout(() => {
+
+                    document.querySelector('#alert').style.display = 'none';
+                    
+                    // window.location.reload();
+                }, 3000);
+
+                }else{
+                    document.querySelector('#alert').style.display = 'felx';
+                    document.querySelector('#alert').innerHTML = `<div class="alert alert-danger w-50 d-felx justify-content-center"  role="alert">
+                                                                    you don't have enough points
+                                                                    </div>`;
+                    setTimeout(() => {
+                        document.querySelector('#alert').style.display = 'none';
+                    }, 2000);
+                }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+     
+
+    </script>
+    <script>
+        const editBtn = document.querySelector('#editBtn');
+        editBtn.addEventListener('click',()=>{
+             var data = {
+                    name: document.querySelector('input[name="name"]').value,
+                    username: document.querySelector('input[name="username"]').value,
+                    age: document.querySelector('input[name="age"]').value,
+                    gread: document.querySelector('input[name="gread"]').value,
+                }
+            if(editBtn.innerHTML === 'Edit'){
+               
+                editBtn.innerHTML = 'Save';
+                editBtn.classList.remove('btn-secondary');
+                editBtn.classList.add('btn-success');
+                document.querySelectorAll('input').forEach(input=>{
+                    input.disabled = false;
+                })
+
+                
+            }else{
+                editBtn.innerHTML = 'Edit';
+                editBtn.classList.remove('btn-success');
+                editBtn.classList.add('btn-secondary');
+                document.querySelectorAll('input').forEach(input=>{
+                    input.disabled = true;
+                })
+                var newData = {
+                    name: document.querySelector('input[name="name"]').value,
+                    username: document.querySelector('input[name="username"]').value,
+                    age: document.querySelector('input[name="age"]').value,
+                    gread: document.querySelector('input[name="gread"]').value,
+                }
+                console.log(newData);
+
+            }
+        })
+    </script>
+
+    {% include "statics/footer.html" %}
+
+</body>
+</html>

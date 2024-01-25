@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <!-- load static dajngo -->
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+    <title>Learn to Earn</title>
+    <style>
+      @media screen and (max-width: 992px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 0 20px;
+          padding-bottom: 20px !important;
+        }
+        .hero-img {
+          display: flex;
+          justify-content: center;
+        }
+        .hero-deteils {
+          text-align: center;
+          align-items: center;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .courses {
+          width: 100% !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-dark">
+    <div>{% include "statics/header.html" %}</div>
+    <div style="display: flex; flex-direction: column">
+      <div style="width: 100%" class="hero mb-5">
+        <div style="padding: 0">
+          <img
+            class="hero-img"
+            style="height: fit-content; padding: 0"
+            src="{% static '/images/hero.png' %}"
+            alt=""
+          />
+        </div>
+
+        <div class="hero-deteils">
+          <h1 class="hero-title text-light">تعلم واكسب</h1>
+          <p class="hero-description text-light">
+            منصة تعلم لتكسب
+            <span style="letter-spacing: 1.2px">( Learn and Earn )</span> هي
+            بيئة تعليمية مبتكرة تقدم دورات شاملة لمختلف الاعمار. اكتسب المهارات
+            الحيوية والمعرفة العميقة و التفوق الدراسي من خلال محتوى تعليمي مميز
+            وتفاعلي. ابدأ رحلتك التعليمية اليوم واحصل على الأدوات التي تحتاجها
+            لتحقيق النجاح وتحقيق أهدافك .
+          </p>
+          <a
+            href="#"
+            id="get-started"
+            class="mt-2 btn btn-outline-light text-decoration-none"
+            >Get Started</a
+          >
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="courses container w-50">
+          <h2 class="text-center text-light mt-5 mb-4 text-bold title">
+            بعض الدورات المتاحة
+          </h2>
+          <div
+            id="carouselExampleSlidesOnly"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+          <style>
+            img{
+              /* based on his parent space */
+              width: 100%;
+              
+              
+            }
+          </style>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+              <img src="https://safa.ps/thumb/830x506/uploads/images/2023/06/bT7Qx.jpg" alt="">
+              </div>
+              <div class="carousel-item">
+                <img width="830" style="size: cover;" src="https://safa.ps/uploads/images/2023/06/lP3Lx.jpg" alt="">
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="border-bottom: 2px solid #fcfcfc" class="mb-5 mt-5"></div>
+      <div
+        class="bg-transparent mb-3 container text-center b-0 d-flex flex-column justify-content-center align-items-center"
+      >
+        <h2 class="text-center text-light mt-5 mb-4 text-bold title">
+          الهدف <span class="text-danger">والرؤية</span>
+        </h2>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title h3">
+                  <i class="bx bx-check"></i> الرؤية
+                </h5>
+                <p class="card-text fs-4">
+                  رؤية المشروع: نحن نسعى إلى تحفيز الطلاب على التعلم وتحويل
+                  التعليم من كونه إلزاميًا إلى رغبة شخصية. نهدف إلى نشر الوعي
+                  والثقافة الإلكترونية بين الطلاب وتعزيز التعلم الذاتي بالاعتماد
+                  على النفس في اكتساب المعرفة. نسعى أيضاً إلى تطوير التعليم
+                  وتكامل التكنولوجيا الحديثة لجعل التعلم تجربة ملهمة ومحفزة.
+                  يهدف المشروع إلى تحقيق تأثير إيجابي على المجتمع من خلال رفع
+                  مستوى الوعي والتثقيف بين جميع فئات المجتمع.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card bg-transparent text-light border-danger mb-3">
+              <div class="card-body">
+                <h5 class="card-title h3">
+                  <i class="bx bxs-bullseye me-1 pt-1 fs-1"></i> الهدف
+                </h5>
+                <p class="card-text fs-3">
+                  تطوير التعليم و الاستفادة من التكنولوجيا الحديثة في مجال
+                  التعليم و تحويل التعليم من اجباري على الطالب لرغبة للطالب و
+                  الدمج بين التعلم الذاتي و التعليم و اعتماد الطالب على نفسه
+                  لاخذ المعلومة و نشر الثقافة المجتمعية بين افراد المجتمع من
+                  خلال المسابقات و الحصص الاكترونية للطلاب بطريقة مسلية و مرغوبة
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="mb-5 text-center">
+
+        <a class="btn btn-secondary w-50 fs-3" href="{% static '/files/learn-and-earn.pdf' %}" download> <i class='bx bx-file mt-1' ></i>تحميل بحث المشروع  </a>
+      </div>
+    </div>
+    <script>
+      var media = window.matchMedia("(max-width: 500px)");
+      if (media.matches) {
+        document.querySelector(".courses").classList.remove("w-50");
+        document.querySelector(".courses").classList.add("w-100");
+      }
+    </script>
+    <script>
+      document.addEventListener("load", () => {
+        if ("{{student}}" !== "") {
+          localStorage.setItem("isAuth", true);
+          localStorage.setItem("student", "{{student}}");
+          localStorage.setItem("username", "{{username}}");
+        }
+      });
+    </script>
+    {% include "statics/footer.html" %}
+  </body>
+</html>

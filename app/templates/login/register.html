@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <html lang="en">
+    <head>
+      <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+      />
+
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Learn to Earn</title>
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://colorlib.com/etc/regform/colorlib-regform-7/css/style.css"
+      />
+
+      <style>
+        @media screen and (max-width: 992px) {
+        }
+      </style>
+    </head>
+    <body class="bg-dark" style="direction: rtl">
+      <div class="main bg-dark">
+        <section class="signup bg-dark">
+          <div class="container">
+            <div class="signup-content">
+              <div class="signup-form">
+                <h2 class="form-title">اشتراك</h2>
+                <form method="POST" class="register-form" id="register-form">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="name"><i class="bx bxs-user-account"></i></label
+                    ><input
+                      type="text"
+                      required
+                      name="name"
+                      id="name"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="username"><i class="bx bx-user"></i></label
+                    ><input
+                      required
+                      type="username"
+                      name="username"
+                      id="username"
+                      placeholder="Your Username"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="password"><i class="bx bx-lock-alt"></i></label
+                    ><input
+                      required
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Password"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="re-pass"><i class="bx bx-lock-alt"></i></label
+                    ><input
+                      type="password"
+                      name="re_pass"
+                      id="re_pass"
+                      placeholder="Repeat your password"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="age"><i class="bx bxs-graduation"></i></label
+                    ><input
+                      required
+                      type="number"
+                      name="age"
+                      id="age"
+                      placeholder="Enter your Age"
+                    />
+                  </div>
+                  <div class="form-group d-flex justify-content-center">
+                    <select
+                      required
+                      class="form-select form-select-lg mb-3"
+                      style="padding: 20px"
+                      id="grade"
+                      name="grade"
+                    >
+                      <option selected value="0">
+                        <i class="bx bx-chevron-down"></i> الصف
+                      </option>
+                      <option value="1">الصف الاول</option>
+                      <option value="5">الصف الخامس</option>
+                      <option value="12">ثانوية عامة</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      required
+                      type="checkbox"
+                      name="agree-term"
+                      id="agree-term"
+                      class="form-check-input"
+                      type="checkbox"
+                    />
+                    <label for="agree-term" class="label-agree-term"
+                      ><span><span></span></span>أوافق على جميع التصريحات
+                      الواردة<a href="#" class="term-service"
+                        >شروط الخدمة</a
+                      ></label
+                    >
+                  </div>
+                  <div class="form-group form-button">
+                    <input
+                      type="submit"
+                      name="signup"
+                      id="signup"
+                      class="form-submit bg-dark"
+                      value="Register"
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="signup-image">
+                <figure>
+                  <img
+                    src="https://colorlib.com/etc/regform/colorlib-regform-7/images/signup-image.jpg"
+                    alt="sing up image"
+                  />
+                </figure>
+                <a href="/login" class="signup-image-link">أنا عضو بالفعل</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </body>
+  </html>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <html lang="en">
+    
+    <head>
+      <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+      />
+
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Learn to Earn</title>
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://colorlib.com/etc/regform/colorlib-regform-7/css/style.css"
+      />
+      <style>
+        @media screen and (max-width: 992px) {
+        }
+      </style>
+    </head>
+    <body class="bg-dark" style="direction: rtl">
+      <div class="main bg-dark">
+        
+        <section class="sign-in bg-dark">
+            <div id="alerts" class="w-50"></div>
+          <div class="container">
+            <div class="signin-content">
+              <div class="signin-image">
+                <figure>
+                  <img
+                    src="https://colorlib.com/etc/regform/colorlib-regform-7/images/signin-image.jpg"
+                    alt="sing up image"
+                  />
+                </figure>
+                <a href="/register" class="signup-image-link">إنشاء حساب</a>
+              </div>
+              <div class="signin-form">
+                <h2 class="form-title" style="text-align: center">اشتراك</h2>
+                <form method="POST" class="register-form" id="login-form">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="username"><i class="bx bx-user"></i></label>
+                    <input
+                      type="text"
+                      name="username"
+                      id="username"
+                      placeholder="Username "
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="password"><i class="bx bx-lock-alt"></i></label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Password"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="remember-me"
+                      style="margin-left: 5px"
+                    />
+                    <label
+                      for="remember-me"
+                      style="margin-right: 5px"
+                      class="label-agree-term me-1"
+                      ><span><span></span></span>تذكرنى</label
+                    >
+                  </div>
+                  <div class="form-group form-button">
+                    <input
+                      type="submit"
+                      name="signin"
+                      id="signin"
+                      class="form-submit bg-dark"
+                      value="Log in"
+                    />
+                  </div>
+                </form>
+                <script>
+                  let loginForm = document.getElementById("login-form");
+
+                  loginForm.addEventListener("submit", (e) => {
+                    e.preventDefault();
+
+                    let username = document.getElementById("username");
+                    let password = document.getElementById("password");
+
+                    if (username.value == "" || password.value == "") {
+                      
+
+                        document.getElementById("alerts").innerHTML = `
+                        <div  class="alert alert-danger w-50" role="alert">
+                        Please fill all fields!
+                        </div>
+                        `;
+
+                        setTimeout(() => {
+                            document.getElementById("alerts").innerHTML = '';
+
+                        }, 3000);
+                    } else {
+                     
+                      document.getElementById("alerts").innerHTML = `
+                        <div style=" animation: .5s ease-in-out;"  class="alert alert-success w-50" role="alert">
+                        Login Success!
+                        </div>
+                        `;
+                        localStorage.setItem('isAuth', true);
+                        localStorage.setItem('username', username.value);
+
+                        setTimeout(() => {
+                            window.location.href = '/';
+
+                        }, 3000);
+
+                    }
+                  });
+
+                  
+                </script>
+                
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </body>
+  </html>
+</html>

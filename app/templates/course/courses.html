@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+    
+    <title>Learn to Earn</title>
+    <style>
+        img:hover{
+            transform: scale(1.1);
+            transition: ease-in-out 0.5s;
+        }
+    </style>
+  </head>
+  <body class="bg-dark">
+    {% include "statics/header.html" %}
+    <div class="container " style="height: 90vh">
+      <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 container mb-5 ">
+
+        {% for course in courses %}
+        <div class="col">
+          <div class="card h-100 ">
+            <img  onclick="handleCourseClick('/{{course.id}}')" src="{{course.image}}" class="card-img-top w-50 "  style="margin: 0 auto; cursor: pointer;" />
+            <div class="card-body">
+              <h5 style="cursor: pointer;" onclick="handleCourseClick('/{{course.id}}')" class="card-title text-center">
+                {{course.name}}
+              </h5>
+              <p class="card-text text-center">
+                {{ course.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+    <script>
+        function handleCourseClick(url){
+            window.location.href = "/course" + url;
+        }
+    </script>
+    {% include "statics/footer.html" %}
+  </body>
+</html>

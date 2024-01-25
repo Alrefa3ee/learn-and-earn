@@ -1,0 +1,151 @@
+/* 3f3e3e fcfcfc fd3d5c f77679 969595 */
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap");
+#collapsibleNavId * {
+  color: #fcfcfc !important;
+  font-family: "Almarai", sans-serif;
+  letter-spacing: 1.5px;
+}
+body{
+  background-color: #fcfcfc;
+}
+nav img {
+  width: 65px;
+  
+}
+
+footer {
+  border-top: 2px solid #fd3d5c;
+}
+
+footer * {
+  color: #fcfcfc !important;
+  font-family: "Almarai", sans-serif;
+}
+
+footer input {
+  color: black !important;
+}
+
+.hero {
+  padding: 0 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  border-bottom: 2px solid #fd3d5c;
+}
+.blockquote-custom {
+  position: relative;
+  font-size: 1.1rem;
+}
+
+.blockquote-custom-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -25px;
+  left: 50px;
+}
+.hero img {
+  width: 400px;
+  
+}
+.hero-deteils {
+  direction: rtl;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero-deteils h1 {
+  font-family: "Almarai", sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-deteils p {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.hero-deteils button {
+  background-color: #fd3d5c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fcfcfc;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .hero img {
+    width: 100%;
+  }
+  .hero-deteils {
+    text-align: center;
+    align-items: center;
+  }
+  .hero-deteils h1 {
+    font-size: 40px;
+  }
+  .hero-deteils p {
+    font-size: 18px;
+  }
+}
+
+.courses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.active {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#holder_18d3529e928 text {
+  fill: #444;
+  font-weight: normal;
+  font-family: Helvetica, monospace;
+  font-size: 40pt;
+}
+
+
+.hero-img{
+  transform: rotate(13deg);
+}
+
+.alert{
+  animation: .5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate3d(0, 50%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
