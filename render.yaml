@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: Learn
+    buildCommand: "./build.sh"
+    env: python
+    startCommand: "gunicorn Learn.wsgi:application"
