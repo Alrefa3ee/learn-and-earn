@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# 
 SECRET_KEY = "django-insecure-j9e=3l!@uvc9*36q^@5@b6ktb1nfoahn6#s9w105k)c05(v0sq"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG","False").lower() == "true"
 
 ALLOWED_HOSTS = ["*"]
 
@@ -80,6 +82,12 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+import dj_database_url
+
+url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(
+    url=url
+)
 
 
 # Password validation
@@ -120,7 +128,6 @@ STATIC_URL = "static/"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    "app/static",
 ]
 
 # Default primary key field type
